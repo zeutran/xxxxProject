@@ -97,10 +97,10 @@ public class GameManager : MonoBehaviour
         cell.transform.localScale = new Vector3(.2f, .2f, 1f);
         spriteRenderer.sprite = cellSprites[1];
 
-        ControlMatch(cell);
+        ControlMatch();
     }
 
-    private void ControlMatch(GameObject cell) // This is the method that controls the match
+    private void ControlMatch() // This is the method that controls the match
     {
         // Code to control the match
         _horizontalCellValues = 0;
@@ -120,6 +120,7 @@ public class GameManager : MonoBehaviour
                             CellObjectMatrix[h, i].GetComponent<SpriteRenderer>().sprite = cellSprites[0];
                             CellObjectMatrix[h, i].transform.localScale = new Vector3(1f, 1f, 1f);
                             CellMatrix[h, i] = 1;
+                            ControlMatch();
                         }
 
                         _verticalCellValues = 0;
@@ -146,6 +147,7 @@ public class GameManager : MonoBehaviour
                             CellObjectMatrix[i, v].GetComponent<SpriteRenderer>().sprite = cellSprites[0];
                             CellObjectMatrix[i, v].transform.localScale = new Vector3(1f, 1f, 1f);
                             CellMatrix[i, v] = 1;
+                            ControlMatch();
                         }
 
                         _horizontalCellValues = 0;
